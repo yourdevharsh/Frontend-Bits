@@ -1,2 +1,2 @@
 # Frontend-Bits
-Simple frontend mini apps, made.
+Simple frontend mini apps.
