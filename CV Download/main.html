@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Resume Template</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    
+    .resume-section {
+      border-bottom: 2px solid #e5e7eb;
+      /* gray-200 */
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .resume-section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    
+    .section-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #374151;
+      /* gray-700 */
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    
+    .contact-item::after {
+      content: '•';
+      margin: 0 0.5rem;
+      color: #6b7280;
+      /* gray-500 */
+    }
+    
+    .contact-item:last-child::after {
+      content: '';
+    }
+    
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      
+      .no-print {
+        display: none;
+      }
+      
+      .resume-container {
+        box-shadow: none !important;
+        border: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 p-4 sm:p-8">
+  
+  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8 sm:p-12 resume-container" id="resume">
+    <!-- Header -->
+    <header class="text-center mb-8">
+      <h1 class="text-4xl font-bold text-gray-800 tracking-tight">FIRSTNAME LASTNAME</h1>
+      <div class="flex justify-center items-center flex-wrap text-sm text-gray-600 mt-3">
+        <span class="contact-item">+1(123) 456-7890</span>
+        <span class="contact-item">San Francisco, CA</span>
+        <a href="mailto:contact@faangpath.com" class="text-blue-600 hover:underline contact-item">contact@faangpath.com</a>
+        <a href="#" class="text-blue-600 hover:underline contact-item">linkedin.com/company/faangpath</a>
+        <a href="#" class="text-blue-600 hover:underline contact-item">www.faangpath.com</a>
+      </div>
+    </header>
+    
+    <!-- Objective -->
+    <section class="resume-section">
+      <h2 class="section-title">Objective</h2>
+      <p class="text-gray-700">Software Engineer with 2+ years of experience in XXX, seeking full-time XXX roles.</p>
+    </section>
+    
+    <!-- Education -->
+    <section class="resume-section">
+      <h2 class="section-title">Education</h2>
+      <div class="space-y-3">
+        <div class="flex justify-between">
+          <div>
+            <h3 class="font-bold text-gray-800">Master of Computer Science, Stanford University</h3>
+            <p class="text-sm text-gray-600">Relevant Coursework: A, B, C, and D.</p>
+          </div>
+          <p class="text-sm font-medium text-gray-600">Expected 2020</p>
+        </div>
+        <div class="flex justify-between">
+          <h3 class="font-bold text-gray-800">Bachelor of Computer Science, Stanford University</h3>
+          <p class="text-sm font-medium text-gray-600">2014-2017</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Skills -->
+    <section class="resume-section">
+      <h2 class="section-title">Skills</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-gray-700">
+        <div>
+          <h3 class="font-semibold mb-1">Technical Skills</h3>
+          <p>A, B, C, D</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-1">Soft Skills</h3>
+          <p>A, B, C, D</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-1">XYZ</h3>
+          <p>A, B, C, D</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Experience -->
+    <section class="resume-section">
+      <h2 class="section-title">Experience</h2>
+      <div class="space-y-4">
+        <div>
+          <div class="flex justify-between items-start">
+            <div>
+              <h3 class="font-bold text-gray-800">Role Name</h3>
+              <p class="font-semibold text-gray-600">Company Name</p>
+            </div>
+            <div class="text-right">
+              <p class="text-sm font-medium text-gray-600">Jan 2017 - Jan 2019</p>
+              <p class="text-sm font-medium text-gray-600">San Francisco, CA</p>
+            </div>
+          </div>
+          <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1">
+            <li>Achieved X% growth for XYZ using A, B, and C skills.</li>
+            <li>Led XYZ which led to X% of improvement in ABC</li>
+            <li>Developed XYZ that did A, B, and C using X, Y, and Z.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="flex justify-between items-start">
+            <div>
+              <h3 class="font-bold text-gray-800">Role Name</h3>
+              <p class="font-semibold text-gray-600">Company Name</p>
+            </div>
+            <div class="text-right">
+              <p class="text-sm font-medium text-gray-600">Jan 2017 - Jan 2019</p>
+              <p class="text-sm font-medium text-gray-600">San Francisco, CA</p>
+            </div>
+          </div>
+          <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1">
+            <li>Achieved X% growth for XYZ using A, B, and C skills.</li>
+            <li>Led XYZ which led to X% of improvement in ABC</li>
+            <li>Developed XYZ that did A, B, and C using X, Y, and Z.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Projects -->
+    <section class="resume-section">
+      <h2 class="section-title">Projects</h2>
+      <div class="space-y-3 text-gray-700">
+        <p><b class="font-semibold">Hiring Search Tool.</b> Built a tool to search for Hiring Managers and Recruiters by using ReactJS, NodeJS, Firebase and boolean queries. Over 25000 people have used it so far, with 5000+ queries being saved and shared, and search results even better than LinkedIn! <a href="#" class="text-blue-600 hover:underline">(Try it here)</a></p>
+        <p><b class="font-semibold">Short Project Title.</b> Build a project that does something and had quantified success using A, B, and C. This project's description spans two lines and also won an award.</p>
+        <p><b class="font-semibold">Short Project Title.</b> Build a project that does something and had quantified success using A, B, and C. This project's description spans two lines and also won an award.</p>
+      </div>
+    </section>
+    
+    <!-- Extra-Curricular Activities -->
+    <section class="resume-section">
+      <h2 class="section-title">Extra-Curricular Activities</h2>
+      <ul class="list-disc list-inside text-gray-700 space-y-1">
+        <li>Actively write blog posts and social media posts (TikTok, Instagram) viewed by over 20K+ job seekers per week to help people with best practices to land their dream jobs.</li>
+        <li>Sample bullet point.</li>
+      </ul>
+    </section>
+    
+    <!-- Leadership -->
+    <section class="resume-section">
+      <h2 class="section-title">Leadership</h2>
+      <ul class="list-disc list-inside text-gray-700 space-y-1">
+        <li>Admin for the FAANGPath Discord community with over 6000+ job seekers and industry mentors. Actively involved in facilitating online events, career conversations, and more alongside other admins and a team of volunteer moderators!</li>
+      </ul>
+    </section>
+    
+  </div>
+  
+  <div class="text-center mt-8 no-print">
+    <button id="download-pdf" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105">
+      Download PDF
+    </button>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const children = document.querySelectorAll('*');
+      children.forEach((child) => {
+        child.setAttribute('contenteditable', true)
+      })
+    });
+
+    document.querySelector('.download-pdf').setAttribute('contenteditable', false);
+    
+    document.getElementById('download-pdf').addEventListener('click', () => {
+      const { jsPDF } = window.jspdf;
+      const resumeElement = document.getElementById('resume');
+      
+      const button = document.getElementById('download-pdf');
+      button.textContent = 'Generating...';
+      button.disabled = true;
+      
+      html2canvas(resumeElement, {
+        scale: 2,
+        useCORS: true
+      }).then(canvas => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF({
+          orientation: 'portrait',
+          unit: 'pt',
+          format: 'a4'
+        });
+        
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = pdf.internal.pageSize.getHeight();
+        const canvasWidth = canvas.width;
+        const canvasHeight = canvas.height;
+        const ratio = canvasWidth / canvasHeight;
+        
+        const width = pdfWidth;
+        const height = width / ratio;
+        
+        pdf.addImage(imgData, 'PNG', 0, 0, width, height);
+        pdf.save('resume.pdf');
+        
+        button.textContent = 'Download PDF';
+        button.disabled = false;
+      }).catch(err => {
+        console.error("Error generating PDF:", err);
+        alert("Sorry, there was an error generating the PDF. Please try again.");
+        button.textContent = 'Download PDF';
+        button.disabled = false;
+      });
+    });
+  </script>
+</body>
+
+</html>
